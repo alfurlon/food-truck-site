@@ -1,4 +1,8 @@
 ---
+
+import { Image } from 'astro:assets';
+import foodTruckLogo from '../../public/food-truck-logo-no-bg.png'
+
 interface Props {
 	title: string;
 }
@@ -16,36 +20,151 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-main-bg-color">
+		<div class="flex w-screen lg:justify-around md:justify-between justify-around items-center md:mt-0 mt-3 lg:ml-0 sm:ml-10">
+			<div class="md:h-32 md:w-32 h-20 w-20">
+				<Image src={foodTruckLogo} alt="Food Truck Logo" />
+			</div>
+			<!-- <input id="menu-toggle" type="checkbox" />
+			<label class='menu-button-container' for="menu-toggle">
+				<div class='menu-button lg:mr-0 md:mr-20'></div>
+		  	</label>
+			  <ul class="menu text-nav-link-color">
+				<li><a href="/">Home</a></li>
+				<li><a href="/">Where Are We</a></li>
+				<li><a href="/">Menu</a></li>
+				<li><a href="/">About Us</a></li>
+				<li><a href="/">Contact Us</a></li>
+				<li><a href="/">Book Our Truck</a></li>
+			  </ul> -->
+			<div class="flex text-nav-link-color">
+				<div class="pr-6">
+					<a href="/">Home</a>
+				</div>
+				<div class="pr-6">
+					<a href="/">Where Are We</a>
+				</div>
+				<div class="pr-6">
+					<a href="/">Menu</a>
+				</div>
+				<div class="pr-6">
+					<a href="/">About Us</a>
+				</div>
+				<div>
+					<a href="/">Contact Us</a>
+				</div>
+			</div> 
+			<div class="text-offwhite-text-color bg-cta-color p-3">
+				<a href="/">Book Our Truck</a>
+			</div>
+		</div>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+
+<style>
+
+	/* .menu {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+
+	.menu > li {
+	margin: 0 1rem;
+	padding-right: 2rem;
+	overflow: hidden;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	.menu-button-container {
+	display: none;
+	height: 100%;
+	width: 30px;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	}
+
+	#menu-toggle {
+	display: none;
+	}
+
+	.menu-button,
+	.menu-button::before,
+	.menu-button::after {
+	display: block;
+	background-color: #D10100;
+	position: absolute;
+	height: 4px;
+	width: 30px;
+	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	border-radius: 2px;
+	}
+
+	.menu-button::before {
+	content: '';
+	margin-top: -8px;
+	}
+
+	.menu-button::after {
+	content: '';
+	margin-top: 8px;
+	}
+
+	#menu-toggle:checked + .menu-button-container .menu-button::before {
+	margin-top: 0px;
+	transform: rotate(405deg);
+	}
+
+	#menu-toggle:checked + .menu-button-container .menu-button {
+	background: rgba(255, 255, 255, 0);
+	}
+
+	#menu-toggle:checked + .menu-button-container .menu-button::after {
+	margin-top: 0px;
+	transform: rotate(-405deg);
+	}
+
+	@media (max-width: 900px) {
+	.menu-button-container {
+		display: flex;
+	}
+	.menu {
+		position: absolute;
+		top: 0;
+		margin-top: 105px;
+		left: 0;
+		flex-direction: column;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+	#menu-toggle ~ .menu li {
+		height: 0;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	#menu-toggle:checked ~ .menu li {
+		border: 1px solid #333;
+		height: 2.5em;
+		padding: 0.5em;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	.menu > li {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+		padding: 0.5em 0;
+		width: 100%;
+		color: white;
+		background-color: #222;
+	}
+	.menu > li:not(:last-child) {
+		border-bottom: 1px solid #444;
+	}
+	} */
 </style>
