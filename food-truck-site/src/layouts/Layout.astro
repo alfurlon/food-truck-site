@@ -23,7 +23,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-main-bg-color">
-		<div class="flex w-screen lg:justify-around md:justify-between justify-around items-center lg:mt-0 mt-3 lg:ml-0 sm:ml-10  relative">
+		<div class="flex w-screen lg:justify-around md:justify-between justify-around items-center lg:mt-0 mt-3 lg:ml-0 sm:pl-10 relative">
 			<div class="md:h-32 md:w-32 h-20 w-20" id="food-truck-logo">
 				<Image src={foodTruckLogo} alt="Food Truck Logo" />
 			</div>
@@ -37,7 +37,7 @@ const { title } = Astro.props;
 					close
 				</span>
 			</div>
-			<div class="hidden absolute top-0 left-0 mt-12 ml-10" id="nav-links-menu">
+			<div class="hidden absolute top-0 left-0 mt-12 pl-10 bg-main-bg-color w-screen h-screen" id="nav-links-menu">
 				<ul class="text-nav-link-color">
 					<li><a href="/">Home</a></li>
 					<li><a href="/">Where Are We</a></li>
