@@ -1,15 +1,11 @@
 ---
-
+import WhereWeAreButton from "./WhereWeAreButton.astro";
 ---
 
-<div>
-    <div>
-        <h1>Welcome to Talking Tacos</h1>
-        <p>The best Mexican food truck in Michigan</p>
-        <a href="/">Where We Are</a>
+<div class="sm:h-60vh h-40vh bg-[url('/jarritos-mexican-soda-nNo4KG8mamY-unsplash.jpg')] bg-cover relative" id="header-div">
+    <div class="text-dark-text-color flex flex-col justify-center items-center w-screen h-full bg-yellow-300/30 backdrop-brightness-75">
+        <h2 class="mb-3 font-bold lg:text-5xl text-3xl">Welcome to Talking Tacos</h2>
+        <p class="lg:mb-3 mb-5 lg:font-normal font-semibold">The best Mexican food truck in Michigan</p>
+        <WhereWeAreButton />
     </div>
 </div>
-
-<style>
-    
-</style>
