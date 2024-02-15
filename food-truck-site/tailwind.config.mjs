@@ -9,7 +9,8 @@ export default {
 				'offwhite-text-color': '#F7F7F7',
 				'cta-color': '#FED201',
 				'dark-text-color': '#222222',
-				'yellow-overlay-color': '#9B8100'
+				'yellow-overlay-color': '#9B8100',
+				'saturated-yellow-bg': '#F5D63D'
 			},
 			spacing: {
 				'60vh': '60vh',
