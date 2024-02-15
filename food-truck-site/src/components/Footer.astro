@@ -1,10 +1,22 @@
 ---
+import facebookLogo from '../../public/facebook.svg'
+import twitterLogo from '../../public/twitter.svg'
+import instagramLogo from '../../public/instagram.svg'
+import { Image } from "astro:assets";
 ---
 
 <footer>
-    <div class="flex">
-        <div>Insta</div>
-        <div>Faceb</div>
-        <div>Twit</div>
+    <div class="grid grid-cols-1 justify-items-center">
+        <div class="grid grid-cols-3">
+            <div class="mr-5">
+                <a href="/"><Image src={instagramLogo} alt='Instagram logo' class='h-7 w-7' /></a>
+            </div>
+            <div class="mr-5">
+                <a href="/"><Image src={facebookLogo} alt='Instagram logo' class='h-7 w-7' /></a>
+            </div>
+            <div class="">
+                <a href="/"><Image src={twitterLogo} alt='Instagram logo' class='h-7 w-7' /></a>
+            </div>
+        </div>
     </div>
 </footer>
