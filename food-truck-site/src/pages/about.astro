@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets';
+import familyPhoto from '../../public/about-us-photo.jpg'
+import familyPhotoCropped from '../../public/about-us-photo-cropped.jpg'
+---
+
+<Layout title="Food Truck Website">
+	<main>
+        <div class="mb-5 lg:w-5/6 lg:mx-auto xl:w-3/4">
+            <Image src={familyPhotoCropped} alt='Family photo' />
+        </div>
+        <div class="text-dark-text-color w-5/6 mx-auto font-medium text-lg xl:w-3/4 xl:text-2xl">
+            <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam id quia expedita quas nihil unde labore! Provident enim deleniti nisi a et non ab sapiente obcaecati. Animi consequuntur debitis sapiente!</p>
+            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ut molestias laborum corporis nobis necessitatibus modi, culpa illum atque eveniet qui, inventore alias debitis ea, quidem sit nesciunt rerum aut!</p>
+            <p class="mb-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt esse nisi reprehenderit asperiores veritatis aspernatur suscipit labore distinctio exercitationem doloremque maiores dicta nihil iure hic, fugit voluptas iste consectetur repudiandae.</p>
+            <p class="mb-3 xl:mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolorum fugit nemo! Impedit quas, eum nam assumenda aliquam rerum ullam optio voluptatibus nemo id aut. Enim natus ea amet dolor.</p>
+        </div>
+	</main>
+</Layout>

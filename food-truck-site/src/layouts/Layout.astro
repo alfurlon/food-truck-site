@@ -2,6 +2,7 @@
 
 import { Image } from 'astro:assets';
 import foodTruckLogo from '../../public/food-truck-logo-no-bg.png'
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -40,11 +41,11 @@ const { title } = Astro.props;
 			<div class="hidden absolute top-0 left-0 mt-12 pl-10 bg-main-bg-color w-screen h-screen z-10" id="nav-links-menu">
 				<ul class="text-nav-link-color">
 					<li><a href="/">Home</a></li>
-					<li><a href="/">Where Are We</a></li>
-					<li><a href="/">Menu</a></li>
-					<li><a href="/">About Us</a></li>
-					<li><a href="/">Contact Us</a></li>
-					<li><a href="/">Book Our Truck</a></li>
+					<li><a href="/schedule">Where Are We</a></li>
+					<li><a href="/menu">Menu</a></li>
+					<li><a href="/about">About Us</a></li>
+					<li><a href="/contact">Contact Us</a></li>
+					<li><a href="/contact">Book Our Truck</a></li>
 				</ul>
 			</div>
 			<div class="lg:flex text-nav-link-color hidden">
@@ -52,23 +53,24 @@ const { title } = Astro.props;
 					<a href="/">Home</a>
 				</div>
 				<div class="pr-6">
-					<a href="/">Where Are We</a>
+					<a href="/schedule">Where Are We</a>
 				</div>
 				<div class="pr-6">
-					<a href="/">Menu</a>
+					<a href="/menu">Menu</a>
 				</div>
 				<div class="pr-6">
-					<a href="/">About Us</a>
+					<a href="/about">About Us</a>
 				</div>
 				<div>
-					<a href="/">Contact Us</a>
+					<a href="/contact">Contact Us</a>
 				</div>
 			</div> 
 			<div class="text-offwhite-text-color bg-cta-color p-3 lg:block hidden">
-				<a href="/">Book Our Truck</a>
+				<a href="/contact">Book Our Truck</a>
 			</div>
 		</div>
 		<slot />
+		<Footer />
 	</body>
 </html>
 
