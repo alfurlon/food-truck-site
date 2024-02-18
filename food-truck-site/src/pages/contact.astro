@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+const web3Key = import.meta.env.PUBLIC_WEB_3_FORM_ACCESS_KEY;
 ---
 
 <Layout title="Food Truck Website">
@@ -29,12 +31,82 @@ import Layout from '../layouts/Layout.astro'
 				<p>Please send us a review or reached out to us if you want to book us!</p>
 			</div>
 			<div>
-				<form action="">
-					<input type="text">
-					<textarea name="info" id="infobox" cols="30" rows="10"></textarea>
+				<form
+					action="https://api.web3forms.com/submit"
+					method="POST"
+					id="form"
+					class="needs-validation"
+					data-astro-reload
+					novalidate>
+
+					<input type="hidden" name="access_key" value={web3Key}>
+					<input type="hidden" name="subject" value="New Submission from Web3Forms">
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+					<input type="text" placeholder="Email" required>
+					<textarea name="info" id="infobox" cols="30" rows="10" placeholder="Please let us know what you need" required></textarea>
 					<button type="submit">Send</button>
+					<div id="result"></div>
 				</form>
 			</div>
 		</div>
 	</main>
 </Layout>
+
+<script is:inline>
+  // astro:page-load to support view Transitions.
+  // use DOMContentLoaded event if you are not using View Transitions
+
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      const form = document.getElementById("form");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) {
+          form.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        result.innerHTML = "Sending...";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.classList.add("text-green-500");
+              result.innerHTML = json.message;
+            } else {
+              console.log(response);
+              result.classList.add("text-red-500");
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            form.reset();
+            form.classList.remove("was-validated");
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 5000);
+          });
+      });
+    },
+    { once: true },
+  );
+</script>
