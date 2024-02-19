@@ -15,6 +15,7 @@ export default {
 			spacing: {
 				'60vh': '60vh',
 				'40vh': '40vh',
+				'500px': '500px'
 			}
 		},
 	},

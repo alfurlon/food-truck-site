@@ -1,36 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import facebookLogo from '../../public/facebook.svg'
+import twitterLogo from '../../public/twitter.svg'
+import instagramLogo from '../../public/instagram.svg'
+import emailIcon from '../../public/email-icon.svg'
+import phoneIcon from '../../public/phone-icon.svg'
+import { Image } from "astro:assets";
+
 
 const web3Key = import.meta.env.PUBLIC_WEB_3_FORM_ACCESS_KEY;
 ---
 
 <Layout title="Food Truck Website">
-	<main>
-		<div>
-			<div>
-				<h3>Contact Info</h3>
+	<main class="text-dark-text-color lg:flex lg:mb-72 xl:mb-52 xl:ml-56 xl:mt-32 mt-10">
+		<div class="bg-saturated-yellow-bg lg:h-64 lg:mt-2 md:mx-auto md:w-72 mx-6 lg:py-10 py-5 pl-8 mb-10">
+			<div class="pb-3">
+				<h2 class="font-semibold text-lg">Contact Info</h2>
+			</div>
+			<div class="pb-2">
+				<div class="flex">
+          <Image src={phoneIcon} alt='Phone icon' />
+          <p class='ml-2'>555-555-5555</p>
+        </div>
+			</div>
+			<div class="pb-2">
+				<div class="flex">
+          <Image src={emailIcon} alt='Email icon' />
+          <p class='ml-2'>example@email.com</p>
+        </div>
 			</div>
 			<div>
-				<div>Icon</div>
-				<div>Phone Number</div>
-			</div>
-			<div>
-				<div>Icon</div>
-				<div>Email</div>
-			</div>
-			<div>
-				<h4>Social</h4>
-				<div>Instagram</div>
-				<div>Facebook</div>
-				<div>Twitter</div>
+				<h3 class="font-semibold pb-3">Socials</h3>
+        <div class="flex">
+          <div><a href="/"><Image src={instagramLogo} alt='Instagram logo' class='h-7 w-7' /></a></div>
+          <div class="pl-3"><a href="/"><Image src={facebookLogo} alt='Instagram logo' class='h-7 w-7' /></a></div>
+          <div class="pl-3"><a href="/"><Image src={twitterLogo} alt='Instagram logo' class='h-7 w-7' /></a></div>
+        </div>
 			</div>
 		</div>
-		<div>
-			<div>
-				<h2>Contact Us</h2>
-				<p>Please send us a review or reached out to us if you want to book us!</p>
+		<div class="mx-6 md:mx-auto md:w-500px xl:w-1/2">
+			<div class="mb-5">
+				<h2 class="text-center font-bold text-xl mb-2 lg:text-left">Contact Us</h2>
+				<p class="text-center font-light lg:text-left">Please send us a review or reach out to us if you want to book us!</p>
 			</div>
-			<div>
+			<div class="mb-10">
 				<form
 					action="https://api.web3forms.com/submit"
 					method="POST"
@@ -42,9 +55,13 @@ const web3Key = import.meta.env.PUBLIC_WEB_3_FORM_ACCESS_KEY;
 					<input type="hidden" name="access_key" value={web3Key}>
 					<input type="hidden" name="subject" value="New Submission from Web3Forms">
 					<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-					<input type="text" placeholder="Email" required>
-					<textarea name="info" id="infobox" cols="30" rows="10" placeholder="Please let us know what you need" required></textarea>
-					<button type="submit">Send</button>
+
+					<input class="mb-4 w-full xl:w-2/3 h-8 border-solid border border-dark-text-color pl-2" type="text" placeholder="Email" required>
+
+					<textarea class="w-full xl:w-2/3 border-solid border border-dark-text-color pl-2 mb-3" name="info" id="infobox" cols="30" rows="5" placeholder="Please let us know what you need" required></textarea>
+
+					<button type="submit" class="block w-full lg:w-24 bg-saturated-yellow-bg text-offwhite-text-color py-2">Send</button>
+
 					<div id="result"></div>
 				</form>
 			</div>
